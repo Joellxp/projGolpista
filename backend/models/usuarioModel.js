@@ -6,6 +6,16 @@ const UsuarioModel = {
         [nome, idade, turma], function (err) {
             callback(err, { id: this.lastID, nome, idade, turma });
         });
+    },
+
+    getAllUsuarios: (callback) => {
+        db.all('SELECT * FROM usuarios', [], (err, rows) => {
+            if (err) {
+                callback(err, null);
+            } else {
+                callback(null, rows);
+            }
+        });
     }
 };
 

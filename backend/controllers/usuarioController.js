@@ -12,6 +12,13 @@ const UsuarioController = {
             if (err) return res.status(500).json({ error: err.message });
             res.status(201).json(usuario);
         });
+    },
+
+    listUsuarios: (req, res) => {
+        UsuarioModel.getAllUsuarios((err, usuarios) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json(usuarios);
+        });
     }
 };
 
